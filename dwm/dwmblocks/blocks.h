@@ -2,7 +2,7 @@
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 //	{"Mem:", "free -h | awk '/^Mem/ { print $3\"/\"$2 }' | sed s/i//g",	30,		0},
-	{"Bat:", "acpi | awk '{print $(NF-1), $NF}'",	30,		0},
+	{"Bat:", "acpi | awk '{print $3, $4}'",	30,		0},
         
 	{"Vol:", "awk -F\"[][]\" '/Left:/ { print $2 }' <(amixer sget Master)",	1,		0},
 	{"", "date '+%b %d (%a) %I:%M%p'",					60,		0},
