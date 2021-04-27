@@ -66,15 +66,19 @@ static const char *dmenucmd[] = { "dmenu_run", "-fn", dmenufont, "-nb", col_gray
 static const char *termcmd[]  = { "st", NULL };
 static const char *bravecmd[]  = { "brave", NULL };
 
-static const char *volumeupcmd[]  = { "amixer","set","Master","8%+", NULL };
-static const char *volumedowncmd[]  = { "amixer","set","Master","8%-", NULL };
+static const char *scrotpartcmd[]  = { "flameshot","gui", NULL };
+static const char *scrotfullcmd[]  = { "/bin/sh","-c","flameshot full -p ~/Pictures/screenshots", NULL };
+static const char *volumeupcmd[]  = { "/bin/sh", "-c","amixer set Master 8%+ ; pkill -RTMIN+10 dwmblocks",  NULL };
+static const char *volumedowncmd[]  = { "/bin/sh", "-c","amixer set Master 8%- ; pkill -RTMIN+10 dwmblocks",  NULL };
 
-static const char *volumetogglecmd[]  = { "amixer","set","Master","toggle", NULL };
+static const char *volumetogglecmd[]  = {"/bin/sh", "-c", "amixer set Master toggle; pkill -RTMIN+10 dwmblocks", NULL };
 
 static Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_w,      spawn,          {.v = bravecmd } },
+	{ MODKEY|ShiftMask,             XK_s,      spawn,          {.v = scrotfullcmd } },
+	{ MODKEY|Mod1Mask,              XK_s,      spawn,          {.v = scrotpartcmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY|ShiftMask,             XK_m,      spawn,          {.v = volumetogglecmd } },
 	{ MODKEY|ShiftMask,             XK_u,      spawn,          {.v = volumeupcmd } },
