@@ -13,11 +13,11 @@ static const int topbar             = 1;        /* 0 means bottom bar */
 static const int user_bh            = 20;        /* 0 means that dwm will calculate bar height, >= 1 means dwm will user_bh as bar height */
 static const char *fonts[]          = { "Jetbrains Mono Medium:size=9" };
 static const char dmenufont[]       = "Jetbrains Mono Medium:size=9";
-static const char col_gray1[]       = "#2E3440";
+static const char col_gray1[]       = "#323845";
 static const char col_gray2[]       = "#3B4252";
 static const char col_gray3[]       = "#D8DEE9";
 static const char col_gray4[]       = "#E5E9F0";
-static const char col_cyan[]        = "#3B4252";
+static const char col_cyan[]        = "#3f4758";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
